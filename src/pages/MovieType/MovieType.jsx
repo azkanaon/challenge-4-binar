@@ -26,7 +26,7 @@ const MovieType = () => {
   }, [type]);
 
   return (
-    <div className="bg-gradient-to-tr from-black to-white/10">
+    <div className="bg-gradient-to-tr from-black to-white/20">
       <Navbar />
       <div className="font-poppins mx-auto pt-[100px] md:pt-[150px]  w-11/12 md:w-10/12 text-white pb-10">
         <div className="text-center pb-5 md:pb-10 ">

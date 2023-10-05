@@ -19,7 +19,19 @@ const SearchMovie = () => {
         console.log(error.message);
       });
   }, [query]);
-
+  if (searchData.length === 0) {
+    return (
+      <div>
+        <Navbar></Navbar>
+        <div className="font-poppins w-screen h-screen flex items-center justify-center">
+          <h2 className="text-white font-semibold text-lg md:text-2xl">
+            Data Not Found
+          </h2>
+        </div>
+        <Footer></Footer>
+      </div>
+    );
+  }
   return (
     <div>
       <Navbar />

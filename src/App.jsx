@@ -6,7 +6,7 @@ import MovieType from "./pages/MovieType/MovieType";
 
 function App() {
   return (
-    <div className="bg-black">
+    <div className="bg-black/90">
       <Router>
         <Routes>
           <Route path="/" element={<Home />}></Route>
