@@ -120,6 +120,7 @@ const Hero = () => {
                 <Link to={`/movie/detail/${movie.id}`}>
                   <div>
                     <img
+                      className="rounded-xl shadow-sm neon-slate hover:scale-105 duration-200"
                       src={`${imageUrl}${movie.backdrop_path}`}
                       alt={movie.title}
                     />
