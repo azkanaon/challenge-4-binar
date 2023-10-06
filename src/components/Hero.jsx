@@ -14,6 +14,8 @@ const Hero = () => {
   const [currentMovie, setCurrentMovie] = useState([]);
   const [backdrop, setBackdrop] = useState([]);
   const [movieHero, setMovieHero] = useState([]);
+  // menghindari error ketika awal pencarian video,
+  // belum tau cara yang benar buat solve kasus ini
   const [getCurrentId, setGetCurrentId] = useState(268);
   const [isOpen, setOpen] = useState(false);
   const handleChange = () => {

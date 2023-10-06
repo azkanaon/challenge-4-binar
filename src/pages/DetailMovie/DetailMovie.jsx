@@ -7,7 +7,7 @@ import ButtonWatch from "../../components/ButtonWatch";
 import ModalWatch from "../../components/ModalWatch";
 import Footer from "../../components/Footer";
 import SliderMovie from "../../components/SliderMovie";
-import SliderActor from "../../components/sliderActor";
+import SliderActor from "../../components/SliderActor";
 
 const DetailMovie = () => {
   const [getDetailData, setGetDetailData] = useState([]);
@@ -99,7 +99,7 @@ const DetailMovie = () => {
               {getDetailData.overview}
             </p>
             <ModalWatch
-              id={getDetailData.id ? getDetailData.id : 268}
+              id={getDetailData.id ? getDetailData.id : 0}
               isOpen={isOpen}
               close={handleChange}
             />
