@@ -14,6 +14,7 @@ const DetailMovie = () => {
   const [getActor, setGetActor] = useState([]);
   const [getSimilar, setGetSimilar] = useState([]);
   const imageUrl = import.meta.env.VITE_REACT_W500IMAGE;
+  const imageOri = import.meta.env.VITE_REACT_ORIGINALIMAGE;
   const { id } = useParams();
   // pengaturan untuk modal di page detail
   const [isOpen, setOpen] = useState(false);
@@ -51,7 +52,7 @@ const DetailMovie = () => {
       <Navbar />
       <div
         style={{
-          backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.25)), url(${imageUrl}${getDetailData.backdrop_path})`,
+          backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.25)), url(${imageOri}${getDetailData.backdrop_path})`,
           backgroundPosition: "top center",
           backgroundRepeat: "no-repeat",
           backgroundColor: "black",
