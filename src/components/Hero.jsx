@@ -11,7 +11,6 @@ import ModalWatch from "./ModalWatch";
 
 const Hero = () => {
   const imageUrl = import.meta.env.VITE_REACT_W500IMAGE;
-  const imageOri = import.meta.env.VITE_REACT_ORIGINALIMAGE;
   const [currentMovie, setCurrentMovie] = useState([]);
   const [backdrop, setBackdrop] = useState([]);
   const [movieHero, setMovieHero] = useState([]);
@@ -32,7 +31,7 @@ const Hero = () => {
           // ambil id saat ini agar dapat melihat trailer
           setGetCurrentId(result[0].id);
           console.log(result[0].id); // menyimpan nilai awal backdrop
-          setBackdrop(`${imageOri}${result[0].backdrop_path}`);
+          setBackdrop(`${imageUrl}${result[0].backdrop_path}`);
 
           // pengambilan lima index pertama
           const first5Movies = result.slice(0, 5);
@@ -42,7 +41,7 @@ const Hero = () => {
       .catch((error) => {
         console.log(error.message);
       });
-  }, [imageOri]);
+  }, [imageUrl]);
 
   // untuk handle perubahan background ketika di swipe
   const handleSlideChange = (swiper) => {
@@ -53,7 +52,7 @@ const Hero = () => {
     // id ikut diupdate agar trailer sesuai dengan film nya
     setGetCurrentId(currentMovie.id);
     // background berubah
-    setBackdrop(`${imageOri}${currentMovie.backdrop_path}`);
+    setBackdrop(`${imageUrl}${currentMovie.backdrop_path}`);
   };
 
   return (
