@@ -106,7 +106,7 @@ const Hero = () => {
             slidesPerView={"auto"}
             coverflowEffect={{
               rotate: 25,
-              stretch: 100,
+              stretch: 75,
               depth: 300,
               modifier: -1,
               slideShadows: true,
