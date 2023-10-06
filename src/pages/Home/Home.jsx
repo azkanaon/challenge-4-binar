@@ -3,7 +3,7 @@ import { getMovieList } from "../../api/api";
 
 import Navbar from "../../components/Navbar";
 import Hero from "../../components/Hero";
-import SliderMovie from "../../components/SliderMovie";
+import SliderWithTitle from "../../components/SliderWithTitle";
 import Footer from "../../components/Footer";
 
 const Home = () => {
@@ -58,18 +58,18 @@ const Home = () => {
       <Navbar />
       <div className="pb-10">
         <Hero />
-        {/* masing-masing tipe dirender di SliderMovie */}
-        <SliderMovie
+        {/* masing-masing tipe dirender di SliderWithTitle */}
+        <SliderWithTitle
           title="Popular"
           type="popular"
           movieList={moviePopularList}
         />
-        <SliderMovie
+        <SliderWithTitle
           title="Top Rated"
           type="top_rated"
           movieList={movieTopRatedList}
         />
-        <SliderMovie
+        <SliderWithTitle
           title="Upcoming"
           type="upcoming"
           movieList={movieUpcomingList}

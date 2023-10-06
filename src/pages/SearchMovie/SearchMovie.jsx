@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { searchMovie } from "../../api/api";
 import { useState, useEffect } from "react";
+
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import CardSearch from "../../components/CardSearch";

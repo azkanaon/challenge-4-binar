@@ -1,9 +1,11 @@
 import { getTrendingMovieList } from "../api/api";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { EffectCoverflow, Pagination } from "swiper/modules";
+
 import ButtonWatch from "./ButtonWatch";
 import ModalWatch from "./ModalWatch";
 
@@ -12,7 +14,7 @@ const Hero = () => {
   const [currentMovie, setCurrentMovie] = useState([]);
   const [backdrop, setBackdrop] = useState([]);
   const [movieHero, setMovieHero] = useState([]);
-  const [getCurrentId, setGetCurrentId] = useState(0);
+  const [getCurrentId, setGetCurrentId] = useState(268);
   const [isOpen, setOpen] = useState(false);
   const handleChange = () => {
     setOpen(!isOpen);
@@ -26,7 +28,7 @@ const Hero = () => {
           setCurrentMovie(result[0]);
           // ambil id saat ini agar dapat melihat trailer
           setGetCurrentId(result[0].id);
-          // menyimpan nilai awal backdrop
+          console.log(result[0].id); // menyimpan nilai awal backdrop
           setBackdrop(`${imageUrl}${result[0].backdrop_path}`);
 
           // pengambilan lima index pertama

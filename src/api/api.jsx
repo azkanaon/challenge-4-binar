@@ -46,8 +46,16 @@ export const creditsMovie = async (id) => {
 
 // mengambil video dari api sesuai id
 export const getVideo = async (id) => {
-  const getDetail = await axios.get(`${url}/movie/${id}/videos`, {
+  const getVideo = await axios.get(`${url}/movie/${id}/videos`, {
     headers: { Authorization: "Bearer " + token },
   });
-  return getDetail.data.results;
+  return getVideo.data.results;
+};
+
+// mengambil similar movie
+export const getSimilarMovie = async (id) => {
+  const getSimilar = await axios.get(`${url}/movie/${id}/similar`, {
+    headers: { Authorization: "Bearer " + token },
+  });
+  return getSimilar.data.results;
 };

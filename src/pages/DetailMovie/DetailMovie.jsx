@@ -1,20 +1,18 @@
 import { useParams } from "react-router-dom";
-import { detailMovie, creditsMovie } from "../../api/api";
+import { detailMovie, creditsMovie, getSimilarMovie } from "../../api/api";
 import { useEffect, useState } from "react";
 
 import Navbar from "../../components/Navbar";
 import ButtonWatch from "../../components/ButtonWatch";
 import ModalWatch from "../../components/ModalWatch";
 import Footer from "../../components/Footer";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import SliderMovie from "../../components/SliderMovie";
+import SliderActor from "../../components/sliderActor";
 
 const DetailMovie = () => {
   const [getDetailData, setGetDetailData] = useState([]);
   const [getActor, setGetActor] = useState([]);
+  const [getSimilar, setGetSimilar] = useState([]);
   const imageUrl = import.meta.env.VITE_REACT_W500IMAGE;
   const { id } = useParams();
   // pengaturan untuk modal di page detail
@@ -31,12 +29,20 @@ const DetailMovie = () => {
     });
   }, [id]);
 
+  // ambil data similar dari api dengan id klik-an user
+  useEffect(() => {
+    getSimilarMovie(id).then((result) => {
+      if (result) {
+        setGetSimilar(result);
+      }
+    });
+  }, [id]);
   // ambil 7 index pertama pada actor
   useEffect(() => {
     creditsMovie(id).then((result) => {
       if (result.length > 0) {
-        const first5Actor = result.slice(0, 7);
-        setGetActor([...first5Actor]);
+        const first10Actor = result.slice(0, 10);
+        setGetActor([...first10Actor]);
       }
     });
   }, [id]);
@@ -54,7 +60,7 @@ const DetailMovie = () => {
         className=" h-screen w-full box-border flex justify-center"
       >
         <div className=" text-white w-10/12 md:w-8/12 flex flex-col md:flex-row items-center">
-          <div className="w-full pt-[75px] md:pt-0  md:w-6/12 flex justify-center md:justify-end md:pr-10">
+          <div className="w-full pt-[90px] md:pt-0  md:w-6/12 flex justify-center md:justify-end md:pr-10">
             <img
               className="w-5/12 md:w-full lg:w-8/12 rounded-xl shadow-xl neon-slate"
               src={
@@ -93,44 +99,24 @@ const DetailMovie = () => {
               {getDetailData.overview}
             </p>
             <ModalWatch
-              id={getDetailData.id ? getDetailData.id : 0}
+              id={getDetailData.id ? getDetailData.id : 268}
               isOpen={isOpen}
               close={handleChange}
             />
             <ButtonWatch click={handleChange} />
             <div className="mt-1 md:mt-4">
               <p className="text-md md:text-xl font-semibold">Caster</p>
-              <Swiper
-                slidesPerView={2}
-                spaceBetween={20}
-                pagination={true}
-                grabCursor={true}
-                breakpoints={{
-                  768: {
-                    slidesPerView: 3,
-                    spaceBetween: 40,
-                  },
-                  1024: {
-                    slidesPerView: 5,
-                    spaceBetween: 30,
-                  },
-                }}
-                modules={[Pagination]}
-                className="mySwiper pb-10 pt-2"
-              >
-                {/* looping actor */}
-                {getActor.map((actor) => (
-                  <SwiperSlide key={actor.id}>
-                    <img
-                      className="w-[100px] border-2 border-slate-400 h-[100px] overflow-hidden shadow-lg neon-slate object-cover rounded-3xl"
-                      src={`${imageUrl}${actor.profile_path}`}
-                      alt={actor.name}
-                    />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+              <SliderActor actors={getActor} />
             </div>
           </div>
+        </div>
+      </div>
+      <div className="mx-5 md:mx-10 flex flex-wrap h-auto text-white bg-gradient-to-b from-black/80 to-black/30 pb-10">
+        <div className="md:pb-5">
+          <h2 className="font-semibold text-md md:text-xl">Similar Movie</h2>
+        </div>
+        <div className="w-full">
+          <SliderMovie movieList={getSimilar} />
         </div>
       </div>
       <Footer />

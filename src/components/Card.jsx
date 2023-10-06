@@ -7,13 +7,13 @@ const Card = ({ id, title, overview, poster }) => {
   return (
     // arahkan ke detail movie
     <Link to={`/movie/detail/${id}`}>
-      <div className="w-full  overflow-hidden rounded-xl flex flex-col box-border shadow-sm neon-slate relative hover:transition-all hover:duration-300">
+      <div className="w-full  overflow-hidden rounded-xl flex flex-col box-border shadow-sm neon-slate relative hover:transition-all z-[9999] duration-300 hover:neon-gray hover:translate-y-[-5px]">
         <img
-          className="w-full lg:h-[425px] object-cover"
+          className="w-full lg:h-auto object-cover"
           src={`${imageUrl}${poster}`}
           alt=""
         />
-        <div className="rounded-t-lg px-3 pt-2 box-border bg-slate-900/75 w-full absolute bottom-[-68px] hover:translate-y-[-68px] duration-300 left-0">
+        <div className="rounded-t-lg px-3 pt-2 box-border bg-slate-900/75 w-full absolute bottom-[-68px] hover:translate-y-[-68px] duration-500 left-0">
           <h2 className="text-white font-semibold mb-2 text-xl md:text-2xl">
             {title}
           </h2>

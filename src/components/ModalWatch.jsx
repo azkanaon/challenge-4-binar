@@ -17,7 +17,7 @@ const ModalWatch = ({ id, close, isOpen }) => {
         console.log(error.message);
       });
   }, [id]);
-  console.log(video);
+
   return (
     <div>
       {/* videoId akan mengarahkan ke youtube */}
