@@ -6,6 +6,7 @@ import Card from "./Card";
 import PropTypes from "prop-types";
 
 const SliderMovie = ({ movieList }) => {
+  console.log(movieList);
   return (
     <Swiper
       slidesPerView={2}
