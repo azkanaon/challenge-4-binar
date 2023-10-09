@@ -11,6 +11,7 @@ import ModalWatch from "./ModalWatch";
 
 const Hero = () => {
   const imageUrl = import.meta.env.VITE_REACT_W500IMAGE;
+  const imageUrlHD = import.meta.env.VITE_REACT_W1280IMAGE;
   const [currentMovie, setCurrentMovie] = useState([]);
   const [backdrop, setBackdrop] = useState([]);
   const [movieHero, setMovieHero] = useState([]);
@@ -52,7 +53,7 @@ const Hero = () => {
     // id ikut diupdate agar trailer sesuai dengan film nya
     setGetCurrentId(currentMovie.id);
     // background berubah
-    setBackdrop(`${imageUrl}${currentMovie.backdrop_path}`);
+    setBackdrop(`${imageUrlHD}${currentMovie.backdrop_path}`);
   };
 
   return (
