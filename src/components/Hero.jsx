@@ -63,7 +63,7 @@ const Hero = () => {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
-      className={`h-screen flex items-center justify-center flex-wrap transition-all duration-200 ease`}
+      className={` h-screen flex items-center justify-center flex-wrap transition-all duration-200 ease`}
     >
       <div className="w-full  md:w-6/12 text-poppins text-white px-6 md:px-10 md:mt-0 h-[50vh] md:h-auto flex flex-col justify-center ">
         <h1 className="mt-20 md:mt-0 md:my-5 text-4xl md:text-6xl font-semibold h-[48px] md:h-auto overflow-auto md:overflow-visible">
@@ -93,6 +93,7 @@ const Hero = () => {
           id={getCurrentId ? getCurrentId : 0}
           isOpen={isOpen}
           close={handleChange}
+          className=""
         />
         <ButtonWatch click={handleChange} />
       </div>
