@@ -13,7 +13,7 @@ const DetailMovie = () => {
   const [getDetailData, setGetDetailData] = useState([]);
   const [getActor, setGetActor] = useState([]);
   const [getSimilar, setGetSimilar] = useState([]);
-  const imageUrlHD = import.meta.env.VITE_REACT_W1280IMAGE;
+  const imageUrlHD = import.meta.env.VITE_REACT_W780IMAGE;
   const imageUrl = import.meta.env.VITE_REACT_W500IMAGE;
   const { id } = useParams();
   // pengaturan untuk modal di page detail

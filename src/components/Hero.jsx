@@ -11,7 +11,7 @@ import ModalWatch from "./ModalWatch";
 
 const Hero = () => {
   const imageUrl = import.meta.env.VITE_REACT_W500IMAGE;
-  const imageUrlHD = import.meta.env.VITE_REACT_W1280IMAGE;
+  const imageUrlHD = import.meta.env.VITE_REACT_W780IMAGE;
   const [currentMovie, setCurrentMovie] = useState([]);
   const [backdrop, setBackdrop] = useState([]);
   const [movieHero, setMovieHero] = useState([]);
